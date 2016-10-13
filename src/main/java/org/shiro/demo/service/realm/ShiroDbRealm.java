@@ -26,6 +26,9 @@ public class ShiroDbRealm extends AuthorizingRealm{
 	@Resource(name="userService")
 	private IUserService userService;
 
+	/**
+	 * 授权，查看该角色是否可以访问
+	 */
 	protected AuthorizationInfo doGetAuthorizationInfo(
 			PrincipalCollection principals) {
 		
@@ -61,7 +64,7 @@ public class ShiroDbRealm extends AuthorizingRealm{
 	}
 
 	/**
-	 *  认证回调函数,登录时调用.
+	 *  认证，登录时调用.判断该用户是否正确
 	 */
 	protected AuthenticationInfo doGetAuthenticationInfo(
 			AuthenticationToken authcToken) throws AuthenticationException {

@@ -13,6 +13,7 @@ import org.apache.commons.lang.StringUtils;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.UsernamePasswordToken;
+import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.apache.shiro.subject.Subject;
 import org.apache.shiro.web.util.WebUtils;
 import org.shiro.demo.entity.User;
@@ -26,17 +27,18 @@ public class LoginController {
 	
 	@RequestMapping(value = "/login" ,method=RequestMethod.POST,produces={"application/json;charset=UTF-8"})
 	public String login(User currUser,HttpSession session, HttpServletRequest request){
-		String code = (String) session.getAttribute("validateCode");
+		/*String code = (String) session.getAttribute("validateCode");
 		String submitCode = WebUtils.getCleanParam(request, "validateCode");
 		if (StringUtils.isEmpty(submitCode) || !StringUtils.equals(code,submitCode.toLowerCase())) {
 			return "redirect:/";
-		}
+		}*/
 		Subject user = SecurityUtils.getSubject();
 		UsernamePasswordToken token = new UsernamePasswordToken(currUser.getAccount(),currUser.getPassword());
-		token.setRememberMe(true);
+		//token.setRememberMe(true);
+		System.out.println("xxxxxx");
 		try {
 			user.login(token);
-			return "/system/main";
+			return "redirect:/system/main.jsp";
 		}catch (AuthenticationException e) {
 			token.clear();
 			return "redirect:/";

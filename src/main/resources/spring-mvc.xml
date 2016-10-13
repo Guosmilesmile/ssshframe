@@ -62,6 +62,7 @@
 		<property name="exceptionMappings">
 			<props>
 				<prop key="org.apache.shiro.authz.UnauthorizedException">/system/error</prop>
+				<prop key="org.apache.shiro.authz.UnauthenticatedException">redirect:/app/error</prop>
 			</props>
 		</property>
 	</bean>

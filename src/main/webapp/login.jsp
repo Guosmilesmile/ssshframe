@@ -26,7 +26,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <ul>
     	<li>姓　名：<input type="text" name="account" /> </li>
     	<li>密　码：<input type="text" name="password" /> </li>
-    	<li>验证码：<input type="text" name="validateCode" />&nbsp;&nbsp;<img id="validateCodeImg" src="<%=basePath%>/validateCode" />&nbsp;&nbsp;<a href="#" onclick="javascript:reloadValidateCode();">看不清？</a></li>
+    	<%-- <li>验证码：<input type="text" name="validateCode" />&nbsp;&nbsp;<img id="validateCodeImg" src="<%=basePath%>/validateCode" />&nbsp;&nbsp;<a href="#" onclick="javascript:reloadValidateCode();">看不清？</a></li> --%>
     	<li><input type="submit" value="确认" /> </li>
     </ul>
     </form>
